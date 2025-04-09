@@ -54,9 +54,8 @@ class CheckBoxPage(BasePage):
         checked_list = self.elements_are_present(self.locators.CHECKED_ITEMS)
         data = []
         for box in checked_list:
-            title_items = box.find_elements(By.XPATH, self.locators.TITLE_ITEM)
-            for item in title_items:
-                data.append(item.text)
+            title_items = box.find_element(By.XPATH, self.locators.TITLE_ITEM)
+            data.append(title_items.text)
         return str(data).replace(' ', '').replace('doc', '').replace('.', '').lower()
 
     def get_output_result(self):
